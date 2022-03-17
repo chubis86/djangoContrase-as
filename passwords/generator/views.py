@@ -4,4 +4,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def about(request):
-    return HttpResponse("ESTO ES UNA PRUEBA DE ABOUT")
+    return render(request, 'about.html')
+
+def home(request):
+    return render(request, 'home.html')
+
+def password(request):
+    return render(request, 'password.html')
