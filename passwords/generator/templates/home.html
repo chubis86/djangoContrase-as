@@ -1,26 +1,43 @@
-<form action="{% url 'password' %}" method="POST">
-    <h1>PASSWORD GENERATOR</h1>
-    {% csrf_token %}
-    <label for="length">Longitud de tu contraseña</label>
-    <select name="length" id="length" required>
-        <option value="6">6 caracteres</option>
-        <option value="7">7 caracteres]</option>
-        <option value="8">8 caracteres]</option>
-        <option value="9">9 caracteres]</option>
-        <option value="10">10 caracteres]</option>
-        
-    </select>
+{% extends './layout.html'%}
+{% block body %}
 
-    <label for="uppercase">Mayúsculas</label>
-    <input type="checkbox" name="uppercase" id="uppercase">
+<div class="col-md-4 offset-md-4">
+    <form class="card card-body p-5" action="{% url 'password' %}" method="POST">
+        <h1>PASSWORD GENERATOR</h1>
+        {% csrf_token %}
+        <div class="col-xs-12">
+            <label for="length" class="form-label">Longitud de tu contraseña</label>
+            <select class="form-control" name="length" id="length" required>
+                <option value="6">6 caracteres</option>
+                <option value="7">7 caracteres]</option>
+                <option value="8">8 caracteres]</option>
+                <option value="9">9 caracteres]</option>
+                <option value="10">10 caracteres]</option>
+                
+            </select>
+        </div>
+        <div class="form-check form-switch my-2">
+            
+            <input class="form-check-input" type="checkbox" name="uppercase" id="uppercase">
+            <label  class="form-label" for="uppercase">Mayúsculas</label>
+        </div>
 
-    <label for="uppercase">Caracteres Especiales</label>
-    <input type="checkbox" name="especiales" id="especiales">
+        <div class="form-check form-switch my-2">
+            
+            <input class="form-check-input" type="checkbox" name="especiales" id="especiales">
+            <label  class="form-label" for="uppercase">Caracteres Especiales</label>
+        </div>
 
-    <label for="uppercase">Números</label>
-    <input type="checkbox" name="numeros" id="numeros">
+        <div class="form-check form-switch my-2">
+            <input class="form-check-input" type="checkbox" name="numeros" id="numeros">
+            <label  class="form-label" for="uppercase">Números</label>
+        </div>
+    
+           
+        <button>GENERAR PASSWORD</button>
+    
+    
+    </form>
+</div>
 
-    <button>GENERAR PASSWORD</button>
-
-
-</form>
+{% endblock %}
