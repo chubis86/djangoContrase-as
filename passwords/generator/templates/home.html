@@ -1,6 +1,6 @@
-<form action="about">
+<form action="/password/" method="POST">
     <h1>PASSWORD GENERATOR</h1>
-
+    {% csrf_token %}
     <label for="length">Longitud de tu contraseña</label>
     <select name="length" id="length">
         <option value="6">6 caracteres</option>
